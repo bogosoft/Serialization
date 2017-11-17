@@ -11,6 +11,8 @@
 		<PackageTags>json serialization deserialization</PackageTags>
 		<RepositoryUrl>https://github.com/bogosoft/Serialization</RepositoryUrl>
 		<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+		<Title>Bogosoft.Serialization.Json</Title>
+		<Version>1.0.0</Version>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
