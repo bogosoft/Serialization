@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<Authors>Clayton Roth</Authors>
+		<Company>Bogosoft</Company>
+		<Copyright>Copyright © 2017</Copyright>
+		<Description>JSON specific implementations of contracts from Bogosoft.Serialization.</Description>
+		<FileVersion>1.0.0</FileVersion>
+		<PackageLicenseUrl>https://raw.githubusercontent.com/bogosoft/Serialization/master/LICENSE</PackageLicenseUrl>
+		<PackageProjectUrl>https://github.com/bogosoft/Serialization</PackageProjectUrl>
+		<PackageTags>json serialization deserialization</PackageTags>
+		<RepositoryUrl>https://github.com/bogosoft/Serialization</RepositoryUrl>
+		<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Bogosoft.Serialization\Bogosoft.Serialization.csproj" />
+	</ItemGroup>
+</Project>
