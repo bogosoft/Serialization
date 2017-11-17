@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bogosoft.Serialization", "Bogosoft.Serialization\Bogosoft.Serialization.csproj", "{94FB4883-9305-4494-BC20-9B80B142215A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bogosoft.Serialization.Json", "Bogosoft.Serialization.Json\Bogosoft.Serialization.Json.csproj", "{5F711260-192A-489C-BD68-AA1DD1997B0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bogosoft.Serialization.Json", "Bogosoft.Serialization.Json\Bogosoft.Serialization.Json.csproj", "{5F711260-192A-489C-BD68-AA1DD1997B0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bogosoft.Serialization.Xml", "Bogosoft.Serialization.Xml\Bogosoft.Serialization.Xml.csproj", "{0285A72E-105F-4330-9394-7591481A1B4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5F711260-192A-489C-BD68-AA1DD1997B0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F711260-192A-489C-BD68-AA1DD1997B0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F711260-192A-489C-BD68-AA1DD1997B0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0285A72E-105F-4330-9394-7591481A1B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0285A72E-105F-4330-9394-7591481A1B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0285A72E-105F-4330-9394-7591481A1B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0285A72E-105F-4330-9394-7591481A1B4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
