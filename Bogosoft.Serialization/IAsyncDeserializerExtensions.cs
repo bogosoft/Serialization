@@ -3,28 +3,25 @@ using System.Threading.Tasks;
 
 namespace Bogosoft.Serialization
 {
+    /// <summary>
+    /// Extended functionality for the <see cref="IAsyncDeserializer{T}"/> contract.
+    /// </summary>
     public static class IAsyncDeserializerExtensions
     {
-        public static Task<object> DeserializeAsync<T>(this IAsyncDeserializer<T> deserializer, T source)
-        {
-            return deserializer.DeserializeAsync(source, CancellationToken.None);
-        }
-
-        public static async Task<TOut> DeserializeAsync<TSource, TOut>(
-            this IAsyncDeserializer<TSource> deserializer,
-            TSource source,
-            CancellationToken token = default(CancellationToken)
-            )
-        {
-            return (TOut)await deserializer.DeserializeAsync(source, token).ConfigureAwait(false);
-        }
-
+        /// <summary>
+        /// Deserialize a given source of data.
+        /// </summary>
+        /// <typeparam name="TOut">The type of the output object.</typeparam>
+        /// <typeparam name="TSource">The type of the source to deserialize from.</typeparam>
+        /// <param name="deserializer">The current deserializer.</param>
+        /// <param name="source">The source of the data to deserialize.</param>
+        /// <returns>An object of the given type.</returns>
         public static Task<TOut> DeserializeAsync<TOut, TSource>(
-            this IAsyncDeserializer<TOut, TSource> deserializer,
+            this IAsyncDeserializer<TSource> deserializer,
             TSource source
             )
         {
-            return deserializer.DeserializeAsync(source, CancellationToken.None);
+            return deserializer.DeserializeAsync<TOut>(source, CancellationToken.None);
         }
     }
 }
