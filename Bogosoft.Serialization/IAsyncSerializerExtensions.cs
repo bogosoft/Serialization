@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using System.IO;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Bogosoft.Serialization
@@ -8,6 +10,77 @@ namespace Bogosoft.Serialization
     /// </summary>
     public static class IAsyncSerializerExtensions
     {
+        /// <summary>
+        /// Serialize a given object to a given stream.
+        /// </summary>
+        /// <param name="serializer">The current serializer.</param>
+        /// <param name="data">An object to serialize.</param>
+        /// <param name="destination">A stream to serialize to.</param>
+        /// <param name="token">A cancellation instruction.</param>
+        /// <returns>A task representing an asynchronous operation.</returns>
+        public static async Task SerializeAsync(
+            this IAsyncSerializer<TextWriter> serializer,
+            object data,
+            Stream destination,
+            CancellationToken token = default(CancellationToken)
+            )
+        {
+            using (var writer = new StreamWriter(destination))
+            {
+                await serializer.SerializeAsync(data, writer, token).ConfigureAwait(false);
+            }
+        }
+
+        /// <summary>
+        /// Serialize a given object to a given stream.
+        /// </summary>
+        /// <param name="serializer">The current serializer.</param>
+        /// <param name="data">An object to serialize.</param>
+        /// <param name="destination">A stream to serialize to.</param>
+        /// <param name="encoding">An encoding to use during serialization.</param>
+        /// <param name="token">A cancellation instruction.</param>
+        /// <returns>A task representing an asynchronous operation.</returns>
+        public static async Task SerializeAsync(
+            this IAsyncSerializer<TextWriter> serializer,
+            object data,
+            Stream destination,
+            Encoding encoding,
+            CancellationToken token = default(CancellationToken)
+            )
+        {
+            using (var writer = new StreamWriter(destination, encoding))
+            {
+                await serializer.SerializeAsync(data, writer, token).ConfigureAwait(false);
+            }
+        }
+
+        /// <summary>
+        /// Serialize a given object to a given stream.
+        /// </summary>
+        /// <param name="serializer">The current serializer.</param>
+        /// <param name="data">An object to serialize.</param>
+        /// <param name="destination">A stream to serialize to.</param>
+        /// <param name="encoding">An encoding to use during serialization.</param>
+        /// <param name="bufferSize">
+        /// A value corresponding to the size of the buffer to use during serialization, in bytes.
+        /// </param>
+        /// <param name="token">A cancellation instruction.</param>
+        /// <returns>A task representing an asynchronous operation.</returns>
+        public static async Task SerializeAsync(
+            this IAsyncSerializer<TextWriter> serializer,
+            object data,
+            Stream destination,
+            Encoding encoding,
+            int bufferSize,
+            CancellationToken token = default(CancellationToken)
+            )
+        {
+            using (var writer = new StreamWriter(destination, encoding, bufferSize))
+            {
+                await serializer.SerializeAsync(data, writer, token).ConfigureAwait(false);
+            }
+        }
+
         /// <summary>
         /// Serialize a given object to a given destination.
         /// </summary>
