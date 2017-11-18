@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<Authors>Clayton Roth</Authors>
+		<Company>Bogosoft</Company>
+		<Copyright>Copyright © 2017</Copyright>
+		<Description>Default .NET binary specific implementations of contracts from Bogosoft.Serialization.</Description>
+		<FileVersion>1.0.0</FileVersion>
+		<PackageLicenseUrl>https://raw.githubusercontent.com/bogosoft/Serialization/master/LICENSE</PackageLicenseUrl>
+		<PackageProjectUrl>https://github.com/bogosoft/Serialization</PackageProjectUrl>
+		<PackageTags>binary legacy serialization deserialization</PackageTags>
+		<RepositoryUrl>https://github.com/bogosoft/Serialization</RepositoryUrl>
+		<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+		<Title>Bogosoft.Serialization.Binary.Legacy</Title>
+		<Version>1.0.0</Version>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>bin\Debug\netstandard2.0\Bogosoft.Serialization.Binary.Legacy.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DocumentationFile>bin\Release\netstandard2.0\Bogosoft.Serialization.Binary.Legacy.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>bin\Debug\net45\Bogosoft.Serialization.Binary.Legacy.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DocumentationFile>bin\Release\net45\Bogosoft.Serialization.Binary.Legacy.xml</DocumentationFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Bogosoft.Serialization\Bogosoft.Serialization.csproj" />
+	</ItemGroup>
+</Project>
