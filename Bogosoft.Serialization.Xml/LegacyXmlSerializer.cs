@@ -9,7 +9,7 @@ namespace Bogosoft.Serialization.Xml
     /// <summary>
     /// An XML serialization/deserialization strategy.
     /// </summary>
-    public class XmlSerializer :
+    public class LegacyXmlSerializer :
         IAsyncDeserializer<Stream>,
         IAsyncDeserializer<TextReader>,
         IAsyncDeserializer<XmlReader>,
