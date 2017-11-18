@@ -11,7 +11,8 @@ namespace Bogosoft.Serialization
     public static class IAsyncSerializerExtensions
     {
         /// <summary>
-        /// Serialize a given object to a given stream.
+        /// Serialize a given object to a given stream The encoding to be used
+        /// during serialization will be <see cref="Encoding.UTF8"/>.
         /// </summary>
         /// <param name="serializer">The current serializer.</param>
         /// <param name="data">An object to serialize.</param>
@@ -25,7 +26,7 @@ namespace Bogosoft.Serialization
             CancellationToken token = default(CancellationToken)
             )
         {
-            using (var writer = new StreamWriter(destination))
+            using (var writer = new StreamWriter(destination, Encoding.UTF8))
             {
                 await serializer.SerializeAsync(data, writer, token).ConfigureAwait(false);
             }

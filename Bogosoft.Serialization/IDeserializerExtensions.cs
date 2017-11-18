@@ -1,14 +1,12 @@
 ﻿using System.IO;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Bogosoft.Serialization
 {
     /// <summary>
-    /// Extended functionality for the <see cref="IAsyncDeserializer{T}"/> contract.
+    /// Extended functionality for the <see cref="IDeserializer{TSource}"/> contract.
     /// </summary>
-    public static class IAsyncDeserializerExtensions
+    public static class IDeserializerExtensions
     {
         /// <summary>
         /// Deserialize a given source of data. During the deserialization operation, byte order will be
@@ -18,17 +16,14 @@ namespace Bogosoft.Serialization
         /// <typeparam name="T">The type of the source to deserialize from.</typeparam>
         /// <param name="deserializer">The current deserializer.</param>
         /// <param name="source">A stream of data to deserialize from.</param>
-        /// <param name="token">A cancellation instruction.</param>
         /// <returns>An object of the given type.</returns>
-        public static async Task<T> DeserializeAsync<T>(
-            this IAsyncDeserializer<TextReader> deserializer,
-            Stream source,
-            CancellationToken token = default(CancellationToken)
-            )
+        public static T Deserialize<T>(
+            this IDeserializer<TextReader> deserializer,
+            Stream source)
         {
             using (var reader = new StreamReader(source, Encoding.UTF8, true))
             {
-                return await deserializer.DeserializeAsync<T>(reader, token);
+                return deserializer.Deserialize<T>(reader);
             }
         }
 
@@ -40,18 +35,16 @@ namespace Bogosoft.Serialization
         /// <param name="deserializer">The current deserializer.</param>
         /// <param name="source">A stream of data to deserialize from.</param>
         /// <param name="encoding">The encoding to use during deserialization.</param>
-        /// <param name="token">A cancellation instruction.</param>
         /// <returns>An object of the given type.</returns>
-        public static async Task<T> DeserializeAsync<T>(
-            this IAsyncDeserializer<TextReader> deserializer,
+        public static T Deserialize<T>(
+            this IDeserializer<TextReader> deserializer,
             Stream source,
-            Encoding encoding,
-            CancellationToken token = default(CancellationToken)
+            Encoding encoding
             )
         {
             using (var reader = new StreamReader(source, encoding, true))
             {
-                return await deserializer.DeserializeAsync<T>(reader, token);
+                return deserializer.Deserialize<T>(reader);
             }
         }
 
@@ -66,19 +59,17 @@ namespace Bogosoft.Serialization
         /// <param name="bufferSize">
         /// A value corresponding to the size of the buffer to use during serialization, in bytes.
         /// </param>
-        /// <param name="token">A cancellation instruction.</param>
         /// <returns>An object of the given type.</returns>
-        public static async Task<T> DeserializeAsync<T>(
-            this IAsyncDeserializer<TextReader> deserializer,
+        public static T Deserialize<T>(
+            this IDeserializer<TextReader> deserializer,
             Stream source,
             Encoding encoding,
-            int bufferSize,
-            CancellationToken token = default(CancellationToken)
+            int bufferSize
             )
         {
             using (var reader = new StreamReader(source, encoding, true, bufferSize))
             {
-                return await deserializer.DeserializeAsync<T>(reader, token);
+                return deserializer.Deserialize<T>(reader);
             }
         }
 
@@ -96,37 +87,19 @@ namespace Bogosoft.Serialization
         /// <param name="bufferSize">
         /// A value corresponding to the size of the buffer to use during serialization, in bytes.
         /// </param>
-        /// <param name="token">A cancellation instruction.</param>
         /// <returns>An object of the given type.</returns>
-        public static async Task<T> DeserializeAsync<T>(
-            this IAsyncDeserializer<TextReader> deserializer,
+        public static T Deserialize<T>(
+            this IDeserializer<TextReader> deserializer,
             Stream source,
             Encoding encoding,
             bool autodetect,
-            int bufferSize,
-            CancellationToken token = default(CancellationToken)
+            int bufferSize
             )
         {
             using (var reader = new StreamReader(source, encoding, autodetect, bufferSize))
             {
-                return await deserializer.DeserializeAsync<T>(reader, token);
+                return deserializer.Deserialize<T>(reader);
             }
-        }
-
-        /// <summary>
-        /// Deserialize a given source of data.
-        /// </summary>
-        /// <typeparam name="TOut">The type of the output object.</typeparam>
-        /// <typeparam name="TSource">The type of the source to deserialize from.</typeparam>
-        /// <param name="deserializer">The current deserializer.</param>
-        /// <param name="source">The source of the data to deserialize.</param>
-        /// <returns>An object of the given type.</returns>
-        public static Task<TOut> DeserializeAsync<TOut, TSource>(
-            this IAsyncDeserializer<TSource> deserializer,
-            TSource source
-            )
-        {
-            return deserializer.DeserializeAsync<TOut>(source, CancellationToken.None);
         }
     }
 }

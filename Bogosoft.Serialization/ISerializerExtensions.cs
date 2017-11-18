@@ -10,7 +10,7 @@ namespace Bogosoft.Serialization
     {
         /// <summary>
         /// Serialize a given object to a given stream. The encoding to be used
-        /// during serialization is <see cref="Encoding.UTF8"/>.
+        /// during serialization will be <see cref="Encoding.UTF8"/>.
         /// </summary>
         /// <param name="serializer">The current serializer.</param>
         /// <param name="data">An object to serialize.</param>
@@ -21,7 +21,7 @@ namespace Bogosoft.Serialization
             Stream destination
             )
         {
-            using (var writer = new StreamWriter(destination))
+            using (var writer = new StreamWriter(destination, Encoding.UTF8))
             {
                 serializer.Serialize(data, writer);
             }
