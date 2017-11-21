@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
-using ActualSerializer = System.Xml.Serialization.XmlSerializer;
+using System.Xml.Serialization;
 
 namespace Bogosoft.Serialization.Xml
 {
@@ -31,7 +31,7 @@ namespace Bogosoft.Serialization.Xml
         /// <returns>An object of the given type.</returns>
         public TOut Deserialize<TOut>(Stream source)
         {
-            return (TOut)new ActualSerializer(typeof(TOut)).Deserialize(source);
+            return (TOut)new XmlSerializer(typeof(TOut)).Deserialize(source);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Bogosoft.Serialization.Xml
         /// <returns>An object of the given type.</returns>
         public TOut Deserialize<TOut>(TextReader source)
         {
-            return (TOut)new ActualSerializer(typeof(TOut)).Deserialize(source);
+            return (TOut)new XmlSerializer(typeof(TOut)).Deserialize(source);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Bogosoft.Serialization.Xml
         /// <returns>An object of the given type.</returns>
         public TOut Deserialize<TOut>(XmlReader source)
         {
-            return (TOut)new ActualSerializer(typeof(TOut)).Deserialize(source);
+            return (TOut)new XmlSerializer(typeof(TOut)).Deserialize(source);
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Bogosoft.Serialization.Xml
         {
             token.ThrowIfCancellationRequested();
 
-            return Task.FromResult((TOut)new ActualSerializer(typeof(TOut)).Deserialize(source));
+            return Task.FromResult((TOut)new XmlSerializer(typeof(TOut)).Deserialize(source));
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace Bogosoft.Serialization.Xml
         {
             token.ThrowIfCancellationRequested();
 
-            return Task.FromResult((TOut)new ActualSerializer(typeof(TOut)).Deserialize(source));
+            return Task.FromResult((TOut)new XmlSerializer(typeof(TOut)).Deserialize(source));
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace Bogosoft.Serialization.Xml
         {
             token.ThrowIfCancellationRequested();
 
-            return Task.FromResult((TOut)new ActualSerializer(typeof(TOut)).Deserialize(source));
+            return Task.FromResult((TOut)new XmlSerializer(typeof(TOut)).Deserialize(source));
         }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace Bogosoft.Serialization.Xml
         /// <param name="destination">A destination to serialize to.</param>
         public void Serialize(object data, Stream destination)
         {
-            new ActualSerializer(data.GetType()).Serialize(destination, data);
+            new XmlSerializer(data.GetType()).Serialize(destination, data);
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Bogosoft.Serialization.Xml
         /// <param name="destination">A destination to serialize to.</param>
         public void Serialize(object data, TextWriter destination)
         {
-            new ActualSerializer(data.GetType()).Serialize(destination, data);
+            new XmlSerializer(data.GetType()).Serialize(destination, data);
         }
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace Bogosoft.Serialization.Xml
         /// <param name="destination">A destination to serialize to.</param>
         public void Serialize(object data, XmlWriter destination)
         {
-            new ActualSerializer(data.GetType()).Serialize(destination, data);
+            new XmlSerializer(data.GetType()).Serialize(destination, data);
         }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace Bogosoft.Serialization.Xml
         {
             token.ThrowIfCancellationRequested();
 
-            new ActualSerializer(data.GetType()).Serialize(destination, data);
+            new XmlSerializer(data.GetType()).Serialize(destination, data);
 
             return Task.FromResult(0);
         }
@@ -155,7 +155,7 @@ namespace Bogosoft.Serialization.Xml
         {
             token.ThrowIfCancellationRequested();
 
-            new ActualSerializer(data.GetType()).Serialize(destination, data);
+            new XmlSerializer(data.GetType()).Serialize(destination, data);
 
             return Task.FromResult(0);
         }
@@ -171,7 +171,7 @@ namespace Bogosoft.Serialization.Xml
         {
             token.ThrowIfCancellationRequested();
 
-            new ActualSerializer(data.GetType()).Serialize(destination, data);
+            new XmlSerializer(data.GetType()).Serialize(destination, data);
 
             return Task.FromResult(0);
         }
