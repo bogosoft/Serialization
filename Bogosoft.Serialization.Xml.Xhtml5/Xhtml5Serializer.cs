@@ -11,7 +11,7 @@ namespace Bogosoft.Serialization.Xml.Xhtml5
     /// A specialized implementation of the <see cref="ISerializer{T}"/> and <see cref="IAsyncSerializer{T}"/>
     /// contracts suited to correctly outputting the XML serialization of HTML 5 (XHTML 5).
     /// </summary>
-    public class Xhtml5Serializer : XmlNodeSerializer
+    public class Xhtml5Serializer : XmlDocumentSerializer
     {
         /// <summary>
         /// Get an array of element names that indicate that their respective elements

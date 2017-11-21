@@ -8,7 +8,7 @@ namespace Bogosoft.Serialization.Xml
     /// <summary>
     /// A type capable of serializing <see cref="XmlDocument"/> objects to <see cref="TextWriter"/> destinations.
     /// </summary>
-    public class XmlNodeSerializer :
+    public class XmlDocumentSerializer :
         IAsyncSerializer<XmlNode, TextWriter>,
         ISerializer<XmlNode, TextWriter>
     {
