@@ -28,7 +28,7 @@ namespace Bogosoft.Serialization
         {
             using (var reader = new StreamReader(source, Encoding.UTF8, true))
             {
-                return await deserializer.DeserializeAsync<T>(reader, token);
+                return await deserializer.DeserializeAsync<T>(reader, token).ConfigureAwait(false);
             }
         }
 
@@ -51,7 +51,7 @@ namespace Bogosoft.Serialization
         {
             using (var reader = new StreamReader(source, encoding, true))
             {
-                return await deserializer.DeserializeAsync<T>(reader, token);
+                return await deserializer.DeserializeAsync<T>(reader, token).ConfigureAwait(false);
             }
         }
 
@@ -78,7 +78,7 @@ namespace Bogosoft.Serialization
         {
             using (var reader = new StreamReader(source, encoding, true, bufferSize))
             {
-                return await deserializer.DeserializeAsync<T>(reader, token);
+                return await deserializer.DeserializeAsync<T>(reader, token).ConfigureAwait(false);
             }
         }
 
@@ -109,7 +109,7 @@ namespace Bogosoft.Serialization
         {
             using (var reader = new StreamReader(source, encoding, autodetect, bufferSize))
             {
-                return await deserializer.DeserializeAsync<T>(reader, token);
+                return await deserializer.DeserializeAsync<T>(reader, token).ConfigureAwait(false);
             }
         }
 

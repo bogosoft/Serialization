@@ -305,7 +305,7 @@ namespace Bogosoft.Serialization.Xml
         {
             foreach (XmlNode child in document.ChildNodes)
             {
-                await SerializeNodeAsync(child, output, "", token);
+                await SerializeNodeAsync(child, output, "", token).ConfigureAwait(false);
             }
         }
 
@@ -328,7 +328,7 @@ namespace Bogosoft.Serialization.Xml
         {
             foreach (XmlNode child in fragment.ChildNodes)
             {
-                await SerializeNodeAsync(child, output, indent, token);
+                await SerializeNodeAsync(child, output, indent, token).ConfigureAwait(false);
             }
         }
 
@@ -365,16 +365,16 @@ namespace Bogosoft.Serialization.Xml
             CancellationToken token
             )
         {
-            await output.WriteAsync(LBreak + indent + "<" + element.Name, token);
+            await output.WriteAsync(LBreak + indent + "<" + element.Name, token).ConfigureAwait(false);
 
             foreach (XmlAttribute a in element.Attributes)
             {
-                await SerializeAttributeAsync(a, output, indent, token);
+                await SerializeAttributeAsync(a, output, indent, token).ConfigureAwait(false);
             }
 
             if (!element.HasChildNodes)
             {
-                await output.WriteAsync(" />", token);
+                await output.WriteAsync(" />", token).ConfigureAwait(false);
 
                 return;
             }
@@ -383,7 +383,7 @@ namespace Bogosoft.Serialization.Xml
 
             foreach (XmlNode child in element.ChildNodes)
             {
-                await SerializeNodeAsync(child, output, indent + Indent, token);
+                await SerializeNodeAsync(child, output, indent + Indent, token).ConfigureAwait(false);
 
                 if (child.NodeType == XmlNodeType.Element)
                 {
@@ -393,10 +393,10 @@ namespace Bogosoft.Serialization.Xml
 
             if (ecount > 0)
             {
-                await output.WriteAsync(LBreak + indent, token);
+                await output.WriteAsync(LBreak + indent, token).ConfigureAwait(false);
             }
 
-            await output.WriteAsync($"</{element.Name}>", token);
+            await output.WriteAsync($"</{element.Name}>", token).ConfigureAwait(false);
         }
 
         /// <summary>

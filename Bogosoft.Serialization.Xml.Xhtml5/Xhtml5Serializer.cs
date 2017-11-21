@@ -59,10 +59,10 @@ namespace Bogosoft.Serialization.Xml.Xhtml5
         {
             if (document.DocumentElement?.Name == "html")
             {
-                await output.WriteAsync("<!DOCTYPE html>", token);
+                await output.WriteAsync("<!DOCTYPE html>", token).ConfigureAwait(false);
             }
 
-            await base.SerializeDocumentAsync(document, output, token);
+            await base.SerializeDocumentAsync(document, output, token).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -136,18 +136,18 @@ namespace Bogosoft.Serialization.Xml.Xhtml5
         {
             if (!element.HasChildNodes && ShouldNotSelfClose.Contains(element.Name))
             {
-                await output.WriteAsync(LBreak + indent + "<" + element.Name, token);
+                await output.WriteAsync(LBreak + indent + "<" + element.Name, token).ConfigureAwait(false);
 
                 foreach (XmlAttribute a in element.Attributes)
                 {
-                    await SerializeAttributeAsync(a, output, indent, token);
+                    await SerializeAttributeAsync(a, output, indent, token).ConfigureAwait(false);
                 }
 
-                await output.WriteAsync("></" + element.Name + ">", token);
+                await output.WriteAsync("></" + element.Name + ">", token).ConfigureAwait(false);
             }
             else
             {
-                await base.SerializeElementAsync(element, output, indent, token);
+                await base.SerializeElementAsync(element, output, indent, token).ConfigureAwait(false);
             }
         }
 
