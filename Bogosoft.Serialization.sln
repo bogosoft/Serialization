@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bogosoft.Serialization.Xml"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bogosoft.Serialization.Bson", "Bogosoft.Serialization.Bson\Bogosoft.Serialization.Bson.csproj", "{F468F506-0AE7-4FA1-8CA7-A019E4A45178}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bogosoft.Serialization.Binary.Legacy", "Bogosoft.Serialization.Binary.Legacy\Bogosoft.Serialization.Binary.Legacy.csproj", "{BF043894-97D1-4236-84A8-5EE312F82202}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bogosoft.Serialization.Binary.Legacy", "Bogosoft.Serialization.Binary.Legacy\Bogosoft.Serialization.Binary.Legacy.csproj", "{BF043894-97D1-4236-84A8-5EE312F82202}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bogosoft.Serialization.Xml.Xhtml5", "Bogosoft.Serialization.Xml.Xhtml5\Bogosoft.Serialization.Xml.Xhtml5.csproj", "{BF96B697-7C6C-45C7-BBE1-3042D77BA2FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{BF043894-97D1-4236-84A8-5EE312F82202}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF043894-97D1-4236-84A8-5EE312F82202}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF043894-97D1-4236-84A8-5EE312F82202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF96B697-7C6C-45C7-BBE1-3042D77BA2FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF96B697-7C6C-45C7-BBE1-3042D77BA2FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF96B697-7C6C-45C7-BBE1-3042D77BA2FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF96B697-7C6C-45C7-BBE1-3042D77BA2FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
